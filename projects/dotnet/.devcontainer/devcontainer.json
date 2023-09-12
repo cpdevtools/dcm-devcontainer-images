@@ -1,0 +1,10 @@
+{
+    "build": {
+      "dockerfile": "dockerfile"
+    },
+    "features": {
+      "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
+        "version": "latest"
+      }
+    }
+  }

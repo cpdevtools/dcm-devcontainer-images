@@ -22,6 +22,7 @@ RUN ./docker-install.sh
 
 
 # Install Dotnet
+ADD https://raw.githubusercontent.com/devcontainers/features/main/src/dotnet/scripts/vendor/dotnet-install.sh ./dotnet-install.sh
 ADD https://raw.githubusercontent.com/devcontainers/features/main/src/dotnet/install.sh ./dotnet-install.sh
 RUN chmod +x ./dotnet-install.sh
 

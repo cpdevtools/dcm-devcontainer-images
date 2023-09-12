@@ -1,0 +1,6 @@
+{
+  "name": "dotnet",
+  "scripts": {
+    "actions-build": "devcontainer build  --workspace-folder ./ --image-name dotnet:latest"
+  }
+}
