@@ -1,0 +1,15 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - "*"
+      - "v/*"
+
+jobs:
+  {{#projects}}
+  build-{{name}}:
+    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
+    with: 
+      projectFilter: "{{name}}"
+  {{/projects}}

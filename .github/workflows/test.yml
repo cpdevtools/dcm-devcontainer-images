@@ -1,0 +1,13 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - "*"
+      - "v/*"
+
+jobs:
+  build-dotnet-ng:
+    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
+    with: 
+      projectFilter: "dotnet-ng"

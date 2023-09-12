@@ -1,0 +1,8 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.implementsBeforeInstallOrUpdate = void 0;
+function implementsBeforeInstallOrUpdate(obj) {
+    return typeof obj?.beforeInstallOrUpdate === "function";
+}
+exports.implementsBeforeInstallOrUpdate = implementsBeforeInstallOrUpdate;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQmVmb3JlSW5zdGFsbE9yVXBkYXRlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vc3JjL2luc3RhbGwvaG9va3MvQmVmb3JlSW5zdGFsbE9yVXBkYXRlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUlBLFNBQWdCLCtCQUErQixDQUFDLEdBQVE7SUFDdEQsT0FBTyxPQUFPLEdBQUcsRUFBRSxxQkFBcUIsS0FBSyxVQUFVLENBQUM7QUFDMUQsQ0FBQztBQUZELDBFQUVDIn0=
