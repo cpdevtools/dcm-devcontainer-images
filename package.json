@@ -10,7 +10,8 @@
     "fix": "run-s fix:*",
     "fix:prettier": "prettier --write --ignore-unknown .",
     "pre-commit": "run-s pre-commit:*",
-    "pre-commit:tags": "git tag | xargs git tag -d",
+    "pre-commit:gen-workflows": "pnpm run gen-workflows",
+    "pre-commit:tags": "pnpm run remove-tags",
     "reset-hard": "git clean -dfx && git reset --hard && pnpm i --force",
     "gen-workflows": "ts-node --project=./tsconfig.json ./.scripts/generate-workflows.ts"
   },
@@ -26,5 +27,8 @@
     "prettier": "^3.0.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
+  },
+  "lint-staged": {
+    "*": "prettier --write --ignore-unknown"
   }
 }
