@@ -1,3 +1,6 @@
 {
-  "name": "dotnet-ng"
+  "name": "dotnet-ng",
+  "scripts": {
+    "actions-build": "docker compose -f docker.build.yml build"
+  }
 }
