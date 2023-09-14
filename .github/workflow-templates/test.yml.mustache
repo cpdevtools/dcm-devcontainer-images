@@ -9,7 +9,7 @@ on:
 jobs:
   {{#projects}}
   build-{{name}}:
-    name: "Build and test project: {{name}}"
+    name: {{name}}
     uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
     with: 
       projectFilter: "{{name}}"

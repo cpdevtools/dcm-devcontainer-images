@@ -8,12 +8,12 @@ on:
 
 jobs:
   build-dotnet:
-    name: "Build and test project: dotnet"
+    name: dotnet
     uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
     with:
       projectFilter: "dotnet"
   build-dotnet-ng:
-    name: "Build and test project: dotnet-ng"
+    name: dotnet-ng
     uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
     with:
       projectFilter: "dotnet-ng"
