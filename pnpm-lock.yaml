@@ -8,8 +8,8 @@ importers:
   .:
     devDependencies:
       "@cpdevtools/lib-node-utilities":
-        specifier: ^0.4.54
-        version: 0.4.54
+        specifier: ^0.4.55
+        version: 0.4.55
       "@devcontainers/cli":
         specifier: ^0.51.2
         version: 0.51.2
@@ -84,10 +84,10 @@ packages:
       regenerator-runtime: 0.14.0
     dev: true
 
-  /@cpdevtools/lib-node-utilities@0.4.54:
+  /@cpdevtools/lib-node-utilities@0.4.55:
     resolution:
       {
-        integrity: sha512-GLHw+2Gfgu5MjLUjwAKQtc38VGYnGt+SmL9AESLsBqiFYIYb6pPFqpMNZ2e3+Ar7GSjw8SCo3sIkcLA98WrmMw==,
+        integrity: sha512-++XEv86F88EdNPaQBdvjVPzDMfFpxcom27wKmGDkY2gPLFf2he9UlGlVnCwqh45EgYX5SXZAJSczZuL0AJNjgw==,
       }
     engines: { node: ">=14.16" }
     dependencies:
@@ -156,7 +156,7 @@ packages:
       "@inquirer/type": 1.1.4
       ansi-escapes: 4.3.2
       chalk: 4.1.2
-      cli-spinners: 2.9.0
+      cli-spinners: 2.9.1
       cli-width: 4.1.0
       figures: 3.2.0
       mute-stream: 1.0.0
@@ -179,7 +179,7 @@ packages:
       "@types/wrap-ansi": 3.0.0
       ansi-escapes: 4.3.2
       chalk: 4.1.2
-      cli-spinners: 2.9.0
+      cli-spinners: 2.9.1
       cli-width: 4.1.0
       figures: 3.2.0
       mute-stream: 1.0.0
@@ -782,10 +782,10 @@ packages:
       string-width: 4.2.3
     dev: true
 
-  /cli-spinners@2.9.0:
+  /cli-spinners@2.9.1:
     resolution:
       {
-        integrity: sha512-4/aL9X3Wh0yiMQlE+eeRhWP6vclO3QRtw1JHKIT0FFUs5FjpFmESqtMvYZ0+lbzBw900b95mS0hohy+qn2VK/g==,
+        integrity: sha512-jHgecW0pxkonBJdrKsqxgRX9AcG+u/5k0Q7WPDfi8AogLAdwxEkyYYNWwZ5GvVFoFx2uiY1eNcSK00fh+1+FyQ==,
       }
     engines: { node: ">=6" }
     dev: true
@@ -1864,7 +1864,7 @@ packages:
       bl: 4.1.0
       chalk: 4.1.2
       cli-cursor: 3.1.0
-      cli-spinners: 2.9.0
+      cli-spinners: 2.9.1
       is-interactive: 1.0.0
       is-unicode-supported: 0.1.0
       log-symbols: 4.1.0
