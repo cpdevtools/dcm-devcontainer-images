@@ -12,6 +12,7 @@ jobs:
     name: <%name%>
     with: 
       projectFilter: "<%name%>" 
+    secrets:
       tokens: |
         NPM_TOKEN=${{ secrets.NPM_TOKEN }}
         GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
