@@ -12,6 +12,6 @@ jobs:
     with:
       projectFilter: "dotnet"
     secrets:
-      TOKEN: |
+      TOKENS: |
         NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
