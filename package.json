@@ -1,6 +1,6 @@
 {
   "name": "dcm-images-devcontainers",
-  "version": "1.0.0",
+  "version": "0.0.1-rc.0",
   "description": "",
   "scripts": {
     "prepare": "run-s prepare:*",
@@ -17,7 +17,7 @@
   },
   "keywords": [],
   "devDependencies": {
-    "@cpdevtools/lib-node-utilities": "^0.4.55",
+    "@cpdevtools/lib-node-utilities": "^0.4.58",
     "@devcontainers/cli": "^0.51.2",
     "husky": "^8.0.3",
     "i": "^0.3.7",
