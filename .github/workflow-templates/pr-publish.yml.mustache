@@ -10,4 +10,6 @@ jobs:
   build-<%name%>:
     uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-publish-projects.yml@main
     name: <%name%>
+    with: 
+      projectFilter: "<%name%>"
   <%/projects%>
