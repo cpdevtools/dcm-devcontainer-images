@@ -10,5 +10,3 @@ on:
 jobs:
   build:
     uses: cpdevtools/common-github-workflows/.github/workflows/create-release-pull-request.yml@main
-    secrets:
-      githubToken: ${{ github.token }}
