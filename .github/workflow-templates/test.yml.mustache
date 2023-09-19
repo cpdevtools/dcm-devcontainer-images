@@ -7,11 +7,11 @@ on:
       - "v/*"
 
 jobs:
-  {{#projects}}
-  build-{{name}}:
-    name: {{name}}
+  <%#projects%>
+  build-<%name%>:
+    name: <%name%>
     uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
     with: 
-      projectFilter: "{{name}}"
-  {{/projects}}
+      projectFilter: "<%name%>"
+  <%/projects%>
   

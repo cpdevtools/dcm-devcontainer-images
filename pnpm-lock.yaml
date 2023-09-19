@@ -8,8 +8,8 @@ importers:
   .:
     devDependencies:
       "@cpdevtools/lib-node-utilities":
-        specifier: ^0.4.56
-        version: 0.4.56
+        specifier: ^0.4.58
+        version: 0.4.58
       "@devcontainers/cli":
         specifier: ^0.51.2
         version: 0.51.2
@@ -84,10 +84,10 @@ packages:
       regenerator-runtime: 0.14.0
     dev: true
 
-  /@cpdevtools/lib-node-utilities@0.4.56:
+  /@cpdevtools/lib-node-utilities@0.4.58:
     resolution:
       {
-        integrity: sha512-mj38vggsAmQNmH+fFEcPVlWGfYXb4wMhQ3NPVc/ARPxJXcchuXeLeJwBQ5J4OHRBW+tFfBAogKEuYSStzbvvEw==,
+        integrity: sha512-ceXiny/omYxKsECcKomQVRslHrxjl9x5bYRUdc/CoCB4MnGjK1+aPwBu1XtyQcmlCaAuzKOQipxXO/KiY0KQeQ==,
       }
     engines: { node: ">=14.16" }
     dependencies:

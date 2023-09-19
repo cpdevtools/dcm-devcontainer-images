@@ -12,7 +12,5 @@ jobs:
       toNpm: true
       toGithub: true
     secrets:
-    {{=<% %>=}}
-      npmToken: ${{{ {{secrets.NPM_TOKEN }} }}}
-      githubToken: ${{{ secrets.GITHUB_TOKEN }}}
-    <%={{ }}=%>
+      npmToken: ${{secrets.NPM_TOKEN }}
+      githubToken: ${{ secrets.GITHUB_TOKEN }}
