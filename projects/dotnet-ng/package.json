@@ -1,6 +1,0 @@
-{
-  "name": "dotnet-ng",
-  "scripts": {
-    "actions-build": "devcontainer build  --workspace-folder ./ --image-name dotnet-ng:latest"
-  }
-}
