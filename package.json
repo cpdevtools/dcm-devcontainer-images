@@ -10,10 +10,8 @@
     "fix": "run-s fix:*",
     "fix:prettier": "prettier --write --ignore-unknown .",
     "pre-commit": "run-s pre-commit:*",
-    "pre-commit:gen-workflows": "pnpm run gen-workflows && git add .github/workflows",
     "pre-commit:tags": "pnpm run remove-tags",
-    "reset-hard": "git clean -dfx && git reset --hard && pnpm i --force",
-    "gen-workflows": "ts-node --project=./tsconfig.json ./.scripts/generate-workflows.ts"
+    "reset-hard": "git clean -dfx && git reset --hard && pnpm i --force"
   },
   "keywords": [],
   "devDependencies": {
