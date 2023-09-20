@@ -9,7 +9,7 @@ jobs:
   <% #projects %>
   pack-<% name %>:
     name: Pack <% name %>
-    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-<% publishConfig.type %>.yml@main
+    uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-<% data.publishConfig.type %>.yml@main"
     with: 
       projectName: "<% name %>"
   <% /projects %>

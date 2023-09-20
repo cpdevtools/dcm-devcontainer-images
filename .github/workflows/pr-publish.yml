@@ -8,6 +8,6 @@ on:
 jobs:
   pack-dotnet:
     name: Pack dotnet
-    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-.yml@main
+    uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-docker.yml@main"
     with:
       projectName: "dotnet"
