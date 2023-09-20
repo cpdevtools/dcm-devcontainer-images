@@ -7,11 +7,7 @@ on:
 
 jobs:
   build-dotnet:
-    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-publish-projects.yml@main
+    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-docker.yml@main
     name: dotnet
     with:
-      projectFilter: "dotnet"
-    secrets:
-      tokens: |
-        NPM_TOKEN=${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+      projectName: "dotnet"

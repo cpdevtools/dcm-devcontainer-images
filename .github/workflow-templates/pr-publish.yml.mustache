@@ -8,12 +8,8 @@ on:
 jobs:
   <%#projects%>
   build-<%name%>:
-    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-publish-projects.yml@main
+    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-docker.yml@main
     name: <%name%>
     with: 
-      projectFilter: "<%name%>" 
-    secrets:
-      tokens: |
-        NPM_TOKEN=${{ secrets.NPM_TOKEN }}
-        GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
+      projectName: "<%name%>"
   <%/projects%>
