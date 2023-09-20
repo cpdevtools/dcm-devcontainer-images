@@ -6,8 +6,8 @@ on:
       - "release/*"
 
 jobs:
-  build-dotnet:
-    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-docker.yml@main
-    name: dotnet
+  pack-dotnet:
+    name: Pack dotnet
+    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-.yml@main
     with:
       projectName: "dotnet"

@@ -6,10 +6,10 @@ on:
       - "release/*"
 
 jobs:
-  <%#projects%>
-  build-<%name%>:
-    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-docker.yml@main
-    name: <%name%>
+  <% #projects %>
+  pack-<% name %>:
+    name: Pack <% name %>
+    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-pack-<% publishConfig.type %>.yml@main
     with: 
-      projectName: "<%name%>"
-  <%/projects%>
+      projectName: "<% name %>"
+  <% /projects %>

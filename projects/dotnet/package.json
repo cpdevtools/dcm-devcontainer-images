@@ -1,5 +1,8 @@
 {
   "name": "dotnet",
+  "publishConfig": {
+    "type": "docker"
+  },
   "scripts": {
     "actions-build": "devcontainer build  --workspace-folder ./ --image-name dotnet:latest",
     "actions-publish": "devcontainer build  --workspace-folder ./ --image-name dotnet:latest"
