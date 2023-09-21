@@ -12,12 +12,11 @@ jobs:
     with:
       projectName: "dotnet"
 
+  # fixes an issue with the external actions/workflows not being able to create/publish a release that is not draft
   publish_release:
     runs-on: ubuntu-latest
     needs: pack_dotnet
     steps:
       - uses: eregon/publish-release@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
         with:
           release_id: ${{ needs.pack_dotnet.outputs.releaseId }}
