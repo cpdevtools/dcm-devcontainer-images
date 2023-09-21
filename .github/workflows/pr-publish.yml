@@ -11,19 +11,3 @@ jobs:
     uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
     with:
       projectName: "dotnet"
-
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Create Release
-        id: create_release
-        uses: ncipollo/release-action@v1.12.0
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          tag: v1.1.1-fake.0
-          name: Release v1.1.1-fake.0
-          body: |
-            Generated Release v1.1.1-fake.0
-          prerelease: true
-          draft: false
