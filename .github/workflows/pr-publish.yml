@@ -22,5 +22,7 @@ jobs:
     needs: pack_dotnet
     steps:
       - uses: eregon/publish-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           release_id: ${{ needs.pack_dotnet.outputs.releaseId }}
