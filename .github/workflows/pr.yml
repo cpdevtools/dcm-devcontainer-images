@@ -25,4 +25,4 @@ jobs:
     steps:
       - name: Check Version
         id: version
-        uses: cpdevtools/action-versions@v0.5
+        uses: cpdevtools/action-versions@main
