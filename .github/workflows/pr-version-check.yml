@@ -12,3 +12,6 @@ jobs:
   pr_check_version:
     name: Check version
     uses: cpdevtools/common-github-workflows/.github/workflows/pr-check-version.yml@main
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+      cancel-in-progress: true
