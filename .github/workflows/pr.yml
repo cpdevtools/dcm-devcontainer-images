@@ -1,0 +1,28 @@
+name: Test PR Events
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - test/*
+
+jobs:
+  # test:
+  #   if: github.event.pull_request.merged == true
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: |
+  #         echo The PR was merged
+  # test2:
+  #   if: github.event.pull_request.merged != true
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - run: |
+  #         echo The PR was not merged
+  test3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Version
+        id: version
+        uses: cpdevtools/action-versions@main
