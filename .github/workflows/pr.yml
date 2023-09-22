@@ -20,3 +20,9 @@ jobs:
     steps:
       - run: |
           echo The PR was not merged
+  test3:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Version
+        id: version
+        uses: cpdevtools/action-versions@v0.5
