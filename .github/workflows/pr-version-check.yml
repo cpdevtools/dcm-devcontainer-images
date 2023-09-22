@@ -10,5 +10,4 @@ on:
 
 jobs:
   pr_check_version:
-    name: Check that version is valid
     uses: cpdevtools/common-github-workflows/.github/workflows/pr-check-version.yml@main
