@@ -8,21 +8,42 @@ on:
       - "release/*"
 
 jobs:
-  pack_dotnet:
+  publish_dotnet:
     if: github.event.pull_request.merged == true
     name: Publish dotnet
     uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
     with:
       projectName: "dotnet"
 
-  # fixes an issue with the external actions/workflows not being able to create/publish a release that is not draft
+  publish_typescript:
+    if: github.event.pull_request.merged == true
+    name: Publish typescript
+    uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
+    with:
+      projectName: "typescript"
+
+  create_release:
+    name: Create github release and add version tags
+    runs-on: ubuntu-latest
+    needs: [publish_dotnet, publish_typescript]
+    outputs:
+      releaseId: ${{ steps.create_release.outputs.releaseId }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Create Release
+        id: create_release
+        uses: cpdevtools/common-github-workflows/.github/actions/create-release@main
+
+  #fixes an issue with the external actions/workflows not being able to create/publish a release that is not draft
   publish_release:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
-    needs: pack_dotnet
+    needs: [create_release]
     steps:
       - uses: eregon/publish-release@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          release_id: ${{ needs.pack_dotnet.outputs.releaseId }}
+          release_id: ${{ needs.create_release.outputs.releaseId }}
