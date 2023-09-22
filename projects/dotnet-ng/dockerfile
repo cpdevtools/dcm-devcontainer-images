@@ -106,7 +106,6 @@ RUN /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager --update
 RUN /usr/lib/android-sdk/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-30" "build-tools;30.0.2" "build-tools;30.0.3"
 RUN sdkmanager --uninstall "build-tools;debian"
 
-
 # Install Chrome for testing
 
 RUN apt-get update \
@@ -115,7 +114,6 @@ RUN apt-get update \
     && apt install ./google-chrome*.deb -y  	
 
 RUN echo 'kernel.unprivileged_userns_clone=1' > /etc/sysctl.d/00-local-userns.conf
-
 
 # Cleanup
 RUN apt-get autoremove -y \
