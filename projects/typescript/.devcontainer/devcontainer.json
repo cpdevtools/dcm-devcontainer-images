@@ -9,12 +9,12 @@
     "REPOS": "/devcontainer/repos"
   },
   "overrideCommand": false,
-  "initializeCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event initialize ${devcontainerId} && cd .devcontainer",
-  "onCreateCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event onCreate ${devcontainerId} && cd .devcontainer && pnpm run --silent dc-onCreateCommand",
-  "updateContentCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event updateContent ${devcontainerId} && cd .devcontainer && pnpm run --silent dc-updateContentCommand",
-  "postCreateCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event postCreate ${devcontainerId} && cd .devcontainer && pnpm run --silent dc-postCreateCommand",
-  "postAttachCommand": "echo $GITHUB_TOKEN && npx -y @cpdevtools/dcman-cli@latest dc-event postAttach ${devcontainerId}  && cd .devcontainer && pnpm run --silent dc-postAttachCommand",
-  "postStartCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event postStart ${devcontainerId} && cd .devcontainer && pnpm run --silent dc-postStartCommand",
+  "initializeCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event initialize ${devcontainerId}",
+  "onCreateCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event onCreate ${devcontainerId} && cd $CONTAINER_FOLDER && pnpm run --silent dc-onCreateCommand",
+  "updateContentCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event updateContent ${devcontainerId} && cd $CONTAINER_FOLDER && pnpm run --silent dc-updateContentCommand",
+  "postCreateCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event postCreate ${devcontainerId} && cd $CONTAINER_FOLDER && pnpm run --silent dc-postCreateCommand",
+  "postAttachCommand": "echo $GITHUB_TOKEN && npx -y @cpdevtools/dcman-cli@latest dc-event postAttach ${devcontainerId}  && cd $CONTAINER_FOLDER && pnpm run --silent dc-postAttachCommand",
+  "postStartCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event postStart ${devcontainerId} && cd $CONTAINER_FOLDER && pnpm run --silent dc-postStartCommand",
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "version": "latest"

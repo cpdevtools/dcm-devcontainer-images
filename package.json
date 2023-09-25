@@ -1,6 +1,6 @@
 {
   "name": "dcm-images-devcontainers",
-  "version": "0.1.0-dev.7",
+  "version": "0.1.0-dev.8",
   "description": "",
   "scripts": {
     "prepare": "run-s prepare:*",
@@ -18,7 +18,6 @@
     "@cpdevtools/lib-node-utilities": "^0.4.58",
     "@devcontainers/cli": "^0.51.2",
     "husky": "^8.0.3",
-    "i": "^0.3.7",
     "lint-staged": "^14.0.1",
     "npm": "^10.1.0",
     "npm-run-all2": "^6.0.6",
