@@ -1,0 +1,28 @@
+version: "3.8"
+
+services:
+  devcontainer:
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    user: "vscode"
+    build:
+      context: .
+      dockerfile: dockerfile
+
+    volumes:
+      - ..:/devcontainer:cached
+      - bashhistory:/commandhistory
+      - dcm-npm-cache:/home/vscode/.npm
+      - dcm-pnpm-cache:/devcontainer/.pnpm-store
+      - dcm-yarn-cache:/home/vscode/.cache/yarn
+      - dcm-nuget-cache:/home/vscode/.nuget
+
+volumes:
+  bashhistory:
+  dcm-nuget-cache:
+    external: true
+  dcm-pnpm-cache:
+    external: true
+  dcm-npm-cache:
+    external: true
+  dcm-yarn-cache:
+    external: true
