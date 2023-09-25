@@ -12,5 +12,47 @@
     },
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/node:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "git.defaultCloneDirectory": "/devcontainer/projects",
+        "git.pullTags": false,
+        "git.autofetch": "all",
+        "terminal.integrated.scrollback": 10000,
+        "cSpell.words": [
+          "entrypoints",
+          "loadbalancer",
+          "middlewares",
+          "stripprefix",
+          "traefik",
+          "letsencrypt",
+          "linq",
+          "pnpm",
+          "devcontainer"
+        ]
+      },
+      "extensions": [
+        "42Crunch.vscode-openapi",
+        "christian-kohler.npm-intellisense",
+        "christian-kohler.path-intellisense",
+        "dbaeumer.vscode-eslint",
+        "donjayamanne.githistory",
+        "EditorConfig.EditorConfig",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-rename-tag",
+        "GitHub.copilot",
+        "GitHub.vscode-pull-request-github",
+        "heaths.vscode-guid",
+        "hediet.vscode-drawio",
+        "johnpapa.vscode-peacock",
+        "mikestead.dotenv",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "redhat.vscode-yaml",
+        "streetsidesoftware.code-spell-checker",
+        "yoavbls.pretty-ts-errors"
+      ]
+    }
   }
 }
