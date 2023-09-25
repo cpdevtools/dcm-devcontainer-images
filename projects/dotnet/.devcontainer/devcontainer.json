@@ -1,6 +1,13 @@
 {
+  "name": "Dev Container",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/devcontainer",
   "build": {
     "dockerfile": "dockerfile"
+  },
+  "containerEnv": {
+    "CONTAINER_FOLDER": "/devcontainer",
+    "REPOS": "/devcontainer/repos"
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {

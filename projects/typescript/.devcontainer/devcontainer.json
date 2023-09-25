@@ -1,6 +1,13 @@
 {
+  "name": "Dev Container",
+  "remoteUser": "vscode",
+  "workspaceFolder": "/devcontainer",
   "build": {
     "dockerfile": "dockerfile"
+  },
+  "containerEnv": {
+    "CONTAINER_FOLDER": "/devcontainer",
+    "REPOS": "/devcontainer/repos"
   },
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
@@ -11,7 +18,7 @@
   "customizations": {
     "vscode": {
       "settings": {
-        "git.defaultCloneDirectory": "/devcontainer/projects",
+        "git.defaultCloneDirectory": "/devcontainer/repos",
         "git.pullTags": false,
         "git.autofetch": "all",
         "terminal.integrated.scrollback": 10000,
