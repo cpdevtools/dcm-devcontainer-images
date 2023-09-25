@@ -1,2 +1,2 @@
 FROM mcr.microsoft.com/devcontainers/typescript-node
-
+CMD [ "sleep", "infinity" ]
