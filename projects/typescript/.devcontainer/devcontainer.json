@@ -1,10 +1,9 @@
 {
   "name": "Dev Container",
-  "remoteUser": "vscode",
+  "remoteUser": "node",
   "workspaceFolder": "/devcontainer",
-  "build": {
-    "dockerfile": "dockerfile"
-  },
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "devcontainer",
   "containerEnv": {
     "CONTAINER_FOLDER": "/devcontainer",
     "REPOS": "/devcontainer/repos"
