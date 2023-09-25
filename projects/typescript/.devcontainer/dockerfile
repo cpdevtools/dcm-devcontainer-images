@@ -1,2 +1,4 @@
-FROM mcr.microsoft.com/devcontainers/typescript-node
+ARG IMAGE_VERSION
+
+FROM mcr.microsoft.com/devcontainers/typescript-node:${IMAGE_VERSION}
 CMD [ "sleep", "infinity" ]
