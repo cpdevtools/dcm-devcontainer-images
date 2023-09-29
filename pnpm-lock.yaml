@@ -37,7 +37,7 @@ importers:
 
   projects/dotnet: {}
 
-  projects/dotnet-ng: {}
+  projects/typescript: {}
 
 packages:
   /@babel/code-frame@7.22.13:
