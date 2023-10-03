@@ -1,7 +1,7 @@
 {
   "name": "Dev Container",
   "remoteUser": "node",
-  "workspaceFolder": "/devcontainer",
+  "workspaceFolder": "/devcontainer/workspaces",
   "build": {
     "dockerfile": "dockerfile",
     "context": ".",
@@ -13,13 +13,11 @@
     "CONTAINER_FOLDER": "/devcontainer",
     "REPOS": "/devcontainer/repos"
   },
-  "overrideCommand": false,
-  "initializeCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event initialize ${devcontainerId}",
   "onCreateCommand": "cd $CONTAINER_FOLDER && npx -y @cpdevtools/dcman-cli@latest dc-event onCreate ${devcontainerId} &&  pnpm run --silent dc-onCreateCommand",
   "updateContentCommand": "cd $CONTAINER_FOLDER && npx -y @cpdevtools/dcman-cli@latest dc-event updateContent ${devcontainerId} && pnpm run --silent dc-updateContentCommand",
   "postCreateCommand": "cd $CONTAINER_FOLDER && npx -y @cpdevtools/dcman-cli@latest dc-event postCreate ${devcontainerId} && pnpm run --silent dc-postCreateCommand",
   "postAttachCommand": "cd $CONTAINER_FOLDER && npx -y @cpdevtools/dcman-cli@latest dc-event postAttach ${devcontainerId} && pnpm run --silent dc-postAttachCommand",
-  "postStartCommand": "npx -y @cpdevtools/dcman-cli@latest dc-event postStart ${devcontainerId} && cd $CONTAINER_FOLDER && pnpm run --silent dc-postStartCommand",
+  "postStartCommand": "cd $CONTAINER_FOLDER && npx -y @cpdevtools/dcman-cli@latest dc-event postStart ${devcontainerId} && pnpm run --silent dc-postStartCommand",
   "features": {
     "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {
       "version": "latest"
