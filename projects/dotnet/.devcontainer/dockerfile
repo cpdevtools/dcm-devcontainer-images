@@ -1,3 +1,10 @@
 ARG IMAGE_VERSION
+ARG USERNAME=vscode
+
 FROM mcr.microsoft.com/devcontainers/dotnet:${IMAGE_VERSION}
+
+RUN pnpm config set store-dir /home/${USERNAME}/.pnpm-store
+VOLUME [ "/devcontainer",  "/commandhistory", "/home/${USERNAME}/.npm", "/home/${USERNAME}/.pnpm-store",  "/home/${USERNAME}/.cache/yarn", "/home/${USERNAME}/.nuget"]
+RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} 
+
 CMD [ "sleep", "infinity" ]
