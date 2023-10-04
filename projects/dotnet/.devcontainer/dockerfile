@@ -1,10 +1,19 @@
-ARG IMAGE_VERSION
-ARG USERNAME=vscode
-
+ARG IMAGE_VERSION=latest
 FROM mcr.microsoft.com/devcontainers/dotnet:${IMAGE_VERSION}
 
-RUN pnpm config set store-dir /home/${USERNAME}/.pnpm-store
-VOLUME [ "/devcontainer",  "/commandhistory", "/home/${USERNAME}/.npm", "/home/${USERNAME}/.pnpm-store",  "/home/${USERNAME}/.cache/yarn", "/home/${USERNAME}/.nuget"]
-RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} 
+USER vscode
+
+RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash \
+    && export NVM_DIR="/usr/local/share/nvm" \
+    && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
+    && [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" \
+    && nvm install 18  
+
+RUN npm i --location=global npm yarn pnpm \
+    && pnpm config set store-dir $HOME/.pnpm-store
+
+
+VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn", "${HOME}/.nuget"]
+RUN chown -R vscode:vscode /devcontainer $HOME
 
 CMD [ "sleep", "infinity" ]

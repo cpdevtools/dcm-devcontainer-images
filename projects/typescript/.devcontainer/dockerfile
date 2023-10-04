@@ -1,10 +1,11 @@
-ARG IMAGE_VERSION
+ARG IMAGE_VERSION=latest
 ARG USERNAME=node
 
 FROM mcr.microsoft.com/devcontainers/typescript-node:${IMAGE_VERSION}
 
-RUN pnpm config set store-dir /home/${USERNAME}/.pnpm-store
-VOLUME [ "/devcontainer",  "/commandhistory", "/home/${USERNAME}/.npm", "/home/${USERNAME}/.pnpm-store",  "/home/${USERNAME}/.cache/yarn", "/home/${USERNAME}/.nuget"]
-RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME} 
+RUN pnpm config set store-dir ${HOME}/.pnpm-store \
+    && chown -R ${USERNAME}:${USERNAME} /devcontainer ${HOME}
+
+VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn", "${HOME}/.nuget"]
 
 CMD [ "sleep", "infinity" ]
