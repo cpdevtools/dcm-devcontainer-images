@@ -3,6 +3,13 @@ FROM mcr.microsoft.com/devcontainers/dotnet:${IMAGE_VERSION}
 
 USER vscode
 
+RUN sudo mkdir -p /devcontainer \
+    && sudo mkdir -p /commandhistory \
+    && mkdir -p $HOME/.npm \
+    && mkdir -p $HOME/.pnpm-store \
+    && mkdir -p $HOME/.cache/yarn \
+    && mkdir -p $HOME/.nuget
+
 RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash \
     && export NVM_DIR="/usr/local/share/nvm" \
     && [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" \
@@ -12,8 +19,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
 RUN npm i --location=global npm yarn pnpm \
     && pnpm config set store-dir $HOME/.pnpm-store
 
-
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn", "${HOME}/.nuget"]
-RUN chown -R vscode:vscode /devcontainer $HOME
+RUN sudo chown -R vscode:vscode /devcontainer /commandhistory $HOME
 
 CMD [ "sleep", "infinity" ]
