@@ -12,7 +12,8 @@ RUN sudo mkdir -p /devcontainer \
     && mkdir -p $HOME/.cache/yarn
 
 RUN npm i --location=global npm yarn pnpm \
-    && pnpm config set store-dir $HOME/.pnpm-store
+    && pnpm config set store-dir $HOME/.pnpm-store \
+    && pnpm setup
 
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]
 RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
