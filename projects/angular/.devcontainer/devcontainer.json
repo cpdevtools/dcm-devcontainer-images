@@ -6,7 +6,7 @@
     "dockerfile": "dockerfile",
     "context": ".",
     "args": {
-      "IMAGE_VERSION": "latest"
+      "IMAGE_VERSION": "18-bullseye"
     }
   },
   "containerEnv": {
