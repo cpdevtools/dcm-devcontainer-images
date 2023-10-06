@@ -22,3 +22,8 @@ jobs:
     uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
     with:
       projectFilter: "typescript"
+  build-angular:
+    name: angular
+    uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main
+    with:
+      projectFilter: "angular"
