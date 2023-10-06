@@ -49,11 +49,13 @@
         "Angular.ng-template",
         "christian-kohler.npm-intellisense",
         "christian-kohler.path-intellisense",
+        "cyrilletuzi.angular-schematics",
         "dbaeumer.vscode-eslint",
         "donjayamanne.githistory",
         "EditorConfig.EditorConfig",
         "esbenp.prettier-vscode",
         "formulahendry.auto-rename-tag",
+        "formulahendry.auto-close-tag",
         "GitHub.copilot",
         "GitHub.vscode-pull-request-github",
         "heaths.vscode-guid",
@@ -64,6 +66,7 @@
         "ms-vscode-remote.remote-containers",
         "redhat.vscode-xml",
         "redhat.vscode-yaml",
+        "segerdekort.angular-cli",
         "streetsidesoftware.code-spell-checker",
         "yoavbls.pretty-ts-errors"
       ]
