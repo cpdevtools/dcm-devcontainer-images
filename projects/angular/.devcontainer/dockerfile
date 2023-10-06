@@ -14,7 +14,7 @@ RUN sudo mkdir -p /devcontainer \
 RUN npm i --location=global npm yarn pnpm \
     && pnpm config set store-dir $HOME/.pnpm-store
 
-RUN pnpm i --location=global @angular/cli
+RUN pnpm i --global @angular/cli
 
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]
 RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
