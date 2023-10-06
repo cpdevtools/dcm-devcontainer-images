@@ -1,0 +1,26 @@
+ARG IMAGE_VERSION=latest
+
+FROM mcr.microsoft.com/devcontainers/typescript-node:${IMAGE_VERSION}
+
+USER node
+
+RUN sudo mkdir -p /devcontainer \
+    && sudo mkdir -p /commandhistory \
+    && mkdir -p $HOME/.npm \
+    && mkdir -p $HOME/.pnpm-store \
+    && mkdir -p $HOME/.cache/yarn
+
+ENV SHELL=/bin/bash
+ENV PNPM_HOME=/home/node/.pnpm-store
+ENV PATH=$PATH:$PNPM_HOME
+
+RUN npm i --location=global npm yarn pnpm \
+    && pnpm config set store-dir $HOME/.pnpm-store \
+    && pnpm setup \
+    && . /home/node/.bashrc \
+    && pnpm --global install @angular/cli
+
+VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]
+RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
+
+CMD [ "sleep", "infinity" ]
