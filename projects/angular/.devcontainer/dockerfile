@@ -18,7 +18,10 @@ RUN npm i --location=global npm yarn pnpm \
     && pnpm config set store-dir $HOME/.pnpm-store \
     && pnpm setup \
     && . /home/node/.bashrc \
-    && pnpm --global install @angular/cli
+    && pnpm --global install @angular/cli \
+    && ng completion \
+    && ng analytics --global disable \
+    && ng config --global cli.packageManager pnpm
 
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]
 RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
