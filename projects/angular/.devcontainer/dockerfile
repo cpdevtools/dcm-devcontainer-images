@@ -1,4 +1,4 @@
-ARG IMAGE_VERSION=latest
+ARG IMAGE_VERSION=18-bullseye
 
 FROM mcr.microsoft.com/devcontainers/typescript-node:${IMAGE_VERSION}
 
@@ -10,20 +10,22 @@ RUN sudo mkdir -p /devcontainer \
     && mkdir -p $HOME/.pnpm-store \
     && mkdir -p $HOME/.cache/yarn
 
+RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
+
 ENV SHELL=/bin/bash
 ENV PNPM_HOME=/home/node/.pnpm-store
 ENV PATH=$PATH:$PNPM_HOME
 
 RUN npm i --location=global npm yarn pnpm \
     && pnpm config set store-dir $HOME/.pnpm-store \
-    && pnpm setup \
-    && . /home/node/.bashrc \
-    && pnpm --global install @angular/cli \
+    && pnpm setup
+    
+RUN . /home/node/.bashrc \
+    && pnpm --global install @angular/cli@16 \
+    && ng analytics disable --global \
     && ng completion \
-    && ng analytics --global disable \
-    && ng config --global cli.packageManager pnpm
+    && ng config cli.packageManager pnpm --global
 
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]
-RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
 
 CMD [ "sleep", "infinity" ]
