@@ -11,7 +11,7 @@ RUN sudo mkdir -p /devcontainer \
     && mkdir -p $HOME/.pnpm-store \
     && mkdir -p $HOME/.cache/yarn
 
-RUN npm i --location=global npm yarn pnpm \
+RUN npm i --location=global npm yarn pnpm @cpdevtools/dcman-cli \
     && pnpm config set store-dir $HOME/.pnpm-store
 
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]

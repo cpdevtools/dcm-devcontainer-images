@@ -17,7 +17,7 @@ RUN curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | ba
     && nvm install 16.18.1 \
     && nvm install 18.18.0  
 
-RUN npm i --location=global npm yarn pnpm \
+RUN npm i --location=global npm yarn pnpm @cpdevtools/dcman-cli \
     && pnpm config set store-dir $HOME/.pnpm-store
 
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn", "${HOME}/.nuget"]

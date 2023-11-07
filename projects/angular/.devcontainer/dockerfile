@@ -16,7 +16,7 @@ ENV SHELL=/bin/bash
 ENV PNPM_HOME=/home/node/.pnpm-store
 ENV PATH=$PATH:$PNPM_HOME
 
-RUN npm i --location=global npm yarn pnpm \
+RUN npm i --location=global npm yarn pnpm @cpdevtools/dcman-cli \
     && pnpm config set store-dir $HOME/.pnpm-store \
     && pnpm setup
     
