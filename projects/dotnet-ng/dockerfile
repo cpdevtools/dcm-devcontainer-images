@@ -43,16 +43,16 @@ RUN chmod +x ./node-install.sh
 
 ENV VERSION=14
 RUN ./node-install.sh
-RUN npm install -g @angular/cli@13 ts-node
+RUN npm install -g @angular/cli@13 ts-node @cpdevtools/dcman-cli
 
 
 ENV VERSION=16
 RUN ./node-install.sh
-RUN npm install -g @angular/cli@13 ts-node
+RUN npm install -g @angular/cli@13 ts-node @cpdevtools/dcman-cli
 
 ENV VERSION=18
 RUN ./node-install.sh
-RUN npm install -g @angular/cli@16 ts-node
+RUN npm install -g @angular/cli@16 ts-node @cpdevtools/dcman-cli
 
 RUN ng config -g cli.packageManager pnpm
 
