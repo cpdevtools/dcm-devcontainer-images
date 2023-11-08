@@ -35,6 +35,8 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
+  projects/angular: {}
+
   projects/dotnet: {}
 
   projects/typescript: {}
