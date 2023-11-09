@@ -1,0 +1,31 @@
+name: Publish Image
+description: "Publish a docker image"
+inputs:
+  projectName:
+    description: Project name
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Install Node & Dependencies
+      uses: cpdevtools/common-github-workflows/.github/actions/node-setup-pnpm@main
+      with:
+        nodeVersion: 18.18.1
+        pnpmVersion: 8.10.2
+
+    - name: ENV
+      shell: bash
+      run: |
+        env
+
+    - name: Build
+      uses: cpdevtools/common-github-workflows/.github/actions/pnpm-run-recursive@main
+      with:
+        script: actions-publish
+        projectFilter: ${{ inputs.projectName }}
+
+    - name: Publish
+      uses: cpdevtools/common-github-workflows/.github/actions/publish-docker-image-pnpm@main
+      with:
+        image: ${{ inputs.projectName }}

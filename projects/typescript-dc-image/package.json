@@ -1,0 +1,10 @@
+{
+  "name": "typescript-dc-image",
+  "publishConfig": {
+    "type": "docker"
+  },
+  "scripts": {
+    "actions-build": "devcontainer build  --workspace-folder ./ --image-name ghcr.io/cpdevtools/typescript-dc-image:${VERSION:-latest}",
+    "actions-publish": "devcontainer build  --workspace-folder ./ --image-name typescript-dc-image:latest"
+  }
+}

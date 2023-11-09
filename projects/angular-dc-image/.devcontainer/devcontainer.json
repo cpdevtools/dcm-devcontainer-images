@@ -1,0 +1,23 @@
+{
+  "name": "Dev Container",
+  "remoteUser": "node",
+  "workspaceFolder": "/devcontainer/workspaces",
+  "build": {
+    "dockerfile": "dockerfile",
+    "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/angular-cli:2": {
+      "version": "17"
+    },
+    "ghcr.io/akhildevelops/devcontainer-features/android-cli:0": {}
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "cSpell.words": ["ng", "angular"]
+      },
+      "extensions": ["Angular.ng-template"]
+    }
+  }
+}

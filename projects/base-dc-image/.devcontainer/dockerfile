@@ -1,0 +1,25 @@
+ARG IMAGE_VERSION=latest
+ARG USERNAME=node
+
+FROM mcr.microsoft.com/devcontainers/typescript-node:${IMAGE_VERSION}
+
+USER node
+
+RUN sudo mkdir -p /devcontainer \
+    && sudo mkdir -p /commandhistory \
+    && mkdir -p $HOME/.npm \
+    && mkdir -p $HOME/.pnpm-store \
+    && mkdir -p $HOME/.cache/yarn
+
+RUN npm i --location=global npm yarn pnpm @cpdevtools/dcman-cli \
+    && pnpm config set store-dir $HOME/.pnpm-store
+
+VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]
+RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
+
+# Install xdg-utils for browser open support
+RUN sudo apt-get update && sudo apt-get install -y \
+    xdg-utils \
+    && sudo rm -rf /var/lib/apt/lists/*
+
+CMD [ "sleep", "infinity" ]
