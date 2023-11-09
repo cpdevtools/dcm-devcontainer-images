@@ -9,10 +9,11 @@ on:
 
 jobs:
   validate:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     name: Validate release version
     outputs:
-      version: ${{ steps.version.outputs.targetVersion }}
+      version: ${{ steps.version.outputs.version }}
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3.3.0
@@ -84,7 +85,7 @@ jobs:
   publish-angular-dotnet-dc-image:
     name: angular-dotnet-dc-image
     runs-on: ubuntu-latest
-    needs: [validate, publish-base-dc-image, publish-angular-dc-image]
+    needs: [validate, publish-angular-dc-image]
     env:
       VERSION: ${{ needs.validate.outputs.version }}
     steps:

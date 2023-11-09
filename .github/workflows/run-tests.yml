@@ -27,7 +27,7 @@ jobs:
       - name: Upload artifact
         uses: ishworkh/container-image-artifact-upload@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/base-dc-image:latest
+          image: ghcr.io/cpdevtools/dcm-images-devcontainers/base-dc-image:latest
           retention_days: 1
 
   build-typescript-dc-image:
@@ -41,7 +41,7 @@ jobs:
       - name: Download artifact
         uses: ishworkh/container-image-artifact-download@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/base-dc-image:latest
+          image: ghcr.io/cpdevtools/dcm-images-devcontainers/base-dc-image:latest
 
       - name: Build Typescript Image
         uses: ./.github/actions/build-image
@@ -59,7 +59,7 @@ jobs:
       - name: Download artifact
         uses: ishworkh/container-image-artifact-download@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/base-dc-image:latest
+          image: ghcr.io/cpdevtools/dcm-images-devcontainers/base-dc-image:latest
 
       - name: Build .Net Image
         uses: ./.github/actions/build-image
@@ -77,7 +77,7 @@ jobs:
       - name: Download artifact
         uses: ishworkh/container-image-artifact-download@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/base-dc-image:latest
+          image: ghcr.io/cpdevtools/dcm-images-devcontainers/base-dc-image:latest
 
       - name: Build Angular Image
         uses: ./.github/actions/build-image
@@ -87,7 +87,7 @@ jobs:
       - name: Upload artifact
         uses: ishworkh/container-image-artifact-upload@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/angular-dc-image:latest
+          image: ghcr.io/cpdevtools/dcm-images-devcontainers/angular-dc-image:latest
 
   build-angular-dotnet-dc-image:
     name: angular-dotnet-dc-image
@@ -100,7 +100,7 @@ jobs:
       - name: Download artifact
         uses: ishworkh/container-image-artifact-download@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/angular-dc-image:latest
+          image: ghcr.io/cpdevtools/dcm-images-devcontainers/angular-dc-image:latest
 
       - name: Build Angular Image
         uses: ./.github/actions/build-image
