@@ -4,10 +4,7 @@
   "workspaceFolder": "/devcontainer/workspaces",
   "build": {
     "dockerfile": "dockerfile",
-    "context": ".",
-    "args": {
-      "IMAGE_VERSION": "18-bullseye"
-    }
+    "context": "."
   },
   "containerEnv": {
     "CONTAINER_FOLDER": "/devcontainer",

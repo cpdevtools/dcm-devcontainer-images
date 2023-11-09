@@ -1,7 +1,7 @@
-ARG IMAGE_VERSION=latest
+ARG VERSION=latest
 ARG USERNAME=node
 
-FROM mcr.microsoft.com/devcontainers/typescript-node:${IMAGE_VERSION}
+FROM ghcr.io/cpdevtools/base-dc-image:${VERSION}
 
 USER node
 

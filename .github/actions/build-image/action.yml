@@ -25,8 +25,3 @@ runs:
       with:
         script: actions-test
         projectFilter: ${{ inputs.projectFilter }}
-
-    - name: Upload artifact
-      uses: ishworkh/container-image-artifact-upload@v1.0.0
-      with:
-        image: "${{ inputs.imageTag }}"
