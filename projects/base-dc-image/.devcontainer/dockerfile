@@ -17,4 +17,9 @@ RUN npm i --location=global npm yarn pnpm @cpdevtools/dcman-cli \
 VOLUME [ "/devcontainer",  "/commandhistory", "${HOME}/.npm", "${HOME}/.pnpm-store",  "${HOME}/.cache/yarn"]
 RUN sudo chown -R node:node /devcontainer /commandhistory $HOME
 
+# Install xdg-utils for browser open support
+RUN sudo apt-get update && sudo apt-get install -y \
+    xdg-utils \
+    && sudo rm -rf /var/lib/apt/lists/*
+
 CMD [ "sleep", "infinity" ]
