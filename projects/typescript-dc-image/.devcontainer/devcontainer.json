@@ -4,7 +4,10 @@
   "workspaceFolder": "/devcontainer/workspaces",
   "build": {
     "dockerfile": "dockerfile",
-    "context": "."
+    "context": ".",
+    "args": {
+      "VERSION": "${VERSION}"
+    }
   },
   "features": {},
   "customizations": {
