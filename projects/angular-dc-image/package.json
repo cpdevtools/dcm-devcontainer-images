@@ -4,7 +4,7 @@
     "type": "docker"
   },
   "scripts": {
-    "actions-build": "devcontainer build  --workspace-folder ./ --image-name ghcr.io/cpdevtools/angular-dc-image:${VERSION:-latest}",
+    "actions-build": "devcontainer build  --workspace-folder ./ --image-name ghcr.io/cpdevtools/dcm-images-devcontainers/angular-dc-image:latest",
     "actions-publish": "devcontainer build  --workspace-folder ./ --image-name angular-dc-image:latest"
   }
 }
