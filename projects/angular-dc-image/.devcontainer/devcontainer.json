@@ -1,0 +1,21 @@
+{
+  "name": "Dev Container",
+  "remoteUser": "node",
+  "workspaceFolder": "/devcontainer/workspaces",
+  "build": {
+    "dockerfile": "dockerfile",
+    "context": ".",
+    "args": {
+      "NG_VERSION": "17"
+    }
+  },
+  "features": {},
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "cSpell.words": ["ng", "angular"]
+      },
+      "extensions": ["Angular.ng-template"]
+    }
+  }
+}
