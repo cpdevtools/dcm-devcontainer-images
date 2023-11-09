@@ -1,0 +1,8 @@
+ARG VERSION=latest
+
+FROM ghcr.io/cpdevtools/base-dc-image:${VERSION}
+
+RUN mkdir -p $HOME/.nuget \
+    && sudo chown -R vscode:vscode $HOME/.nuget
+
+VOLUME ["${HOME}/.nuget"]
