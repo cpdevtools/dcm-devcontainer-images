@@ -9,9 +9,6 @@
       "VERSION": "${localEnv:VERSION}"
     }
   },
-  "containerEnv": {
-    "VERSION": "${localEnv:VERSION}"
-  },
   "features": {},
   "customizations": {
     "vscode": {

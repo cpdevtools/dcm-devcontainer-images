@@ -1,3 +1,4 @@
 ARG VERSION=latest
 
 FROM ghcr.io/cpdevtools/dcm-images-devcontainers/base-dc-image:${VERSION}
+ENV VERSION=${VERSION}
