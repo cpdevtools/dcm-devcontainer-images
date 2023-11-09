@@ -12,6 +12,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  build-base:
+    name: base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Base Image
+        uses: ../actions/build-image
+
   build-dotnet:
     name: dotnet
     uses: cpdevtools/common-github-workflows/.github/workflows/pnpm-build-and-test-projects.yml@main

@@ -1,0 +1,35 @@
+name: Build Image
+description: "Build a docker image and stores it as an artifact"
+inputs:
+  imageTag:
+    description: the tag to use for the image upload
+    required: true
+  projectFilter:
+    description: Project filter
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout Project
+      uses: actions/checkout@v3.3.0
+
+    - name: Install Node & Dependencies
+      uses: cpdevtools/common-github-workflows/.github/actions/node-setup-pnpm@main
+
+    - name: Build
+      uses: cpdevtools/common-github-workflows/.github/actions/pnpm-run-recursive@main
+      with:
+        script: actions-build
+        projectFilter: ${{ inputs.projectFilter }}
+
+    - name: Run Tests
+      uses: cpdevtools/common-github-workflows/.github/actions/pnpm-run-recursive@main
+      with:
+        script: actions-test
+        projectFilter: ${{ inputs.projectFilter }}
+
+    - name: Upload artifact
+      uses: ishworkh/container-image-artifact-upload@v1.0.0
+      with:
+        image: "${{ inputs.imageTag }}"
