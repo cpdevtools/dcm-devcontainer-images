@@ -1,7 +1,3 @@
 ARG VERSION=latest
-ARG NG_VERSION=latest
 
 FROM ghcr.io/cpdevtools/base-dc-image:${VERSION}
-
-RUN source $NVM_DIR/nvm.sh \
-    && pnpm i -g @angular/cli@${NG_VERSION}

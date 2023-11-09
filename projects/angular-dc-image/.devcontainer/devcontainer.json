@@ -4,12 +4,14 @@
   "workspaceFolder": "/devcontainer/workspaces",
   "build": {
     "dockerfile": "dockerfile",
-    "context": ".",
-    "args": {
-      "NG_VERSION": "17"
-    }
+    "context": "."
   },
-  "features": {},
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/angular-cli:2": {
+      "version": "17"
+    },
+    "ghcr.io/akhildevelops/devcontainer-features/android-cli:0": {}
+  },
   "customizations": {
     "vscode": {
       "settings": {
