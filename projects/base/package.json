@@ -1,0 +1,10 @@
+{
+  "name": "base",
+  "publishConfig": {
+    "type": "docker"
+  },
+  "scripts": {
+    "actions-build": "devcontainer build  --workspace-folder ./ --image-name base:latest",
+    "actions-publish": "devcontainer build  --workspace-folder ./ --image-name base:latest"
+  }
+}

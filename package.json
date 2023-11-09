@@ -1,6 +1,6 @@
 {
   "name": "dcm-images-devcontainers",
-  "version": "0.1.0-dev.20",
+  "version": "0.1.0-dev.21",
   "description": "",
   "scripts": {
     "prepare": "run-s prepare:*",
