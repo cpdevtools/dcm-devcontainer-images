@@ -11,6 +11,9 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  VERSION: latest
+
 jobs:
   build-base-dc-image:
     name: base-dc-image
