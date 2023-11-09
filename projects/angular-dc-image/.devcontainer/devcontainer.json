@@ -6,8 +6,11 @@
     "dockerfile": "dockerfile",
     "context": ".",
     "args": {
-      "VERSION": "${VERSION}"
+      "VERSION": "${localEnv:VERSION}"
     }
+  },
+  "containerEnv": {
+    "VERSION": "${localEnv:VERSION}"
   },
   "features": {
     "ghcr.io/devcontainers-contrib/features/angular-cli:2": {
