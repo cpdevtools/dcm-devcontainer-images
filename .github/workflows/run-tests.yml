@@ -16,8 +16,14 @@ jobs:
     name: base
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
       - name: Build Base Image
         uses: ./.github/actions/build-image
+        with:
+          imageTag: "base:latest"
+          projectFilter: "base"
 
   build-dotnet:
     name: dotnet
