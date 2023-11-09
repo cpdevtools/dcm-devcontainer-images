@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build Base Image
-        uses: ../actions/build-image
+        uses: .github/actions/build-image
 
   build-dotnet:
     name: dotnet
