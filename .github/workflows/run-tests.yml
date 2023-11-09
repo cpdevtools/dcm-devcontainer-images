@@ -28,9 +28,10 @@ jobs:
         uses: ishworkh/container-image-artifact-upload@v1.0.0
         with:
           image: ghcr.io/cpdevtools/base-dc-image:latest
+          retention_days: 1
 
-  build-typescript:
-    name: typescript
+  build-typescript-dc-image:
+    name: typescript-dc-image
     runs-on: ubuntu-latest
     needs: [build-base-dc-image]
     steps:
@@ -42,10 +43,10 @@ jobs:
         with:
           image: ghcr.io/cpdevtools/base-dc-image:latest
 
-      - name: Build Base Image
+      - name: Build Typescript Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: typescript
+          projectFilter: typescript-dc-image
 
   # build-dotnet:
   #   name: dotnet
