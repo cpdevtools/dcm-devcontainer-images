@@ -9,9 +9,6 @@
       "VERSION": "${localEnv:VERSION}"
     }
   },
-  "containerEnv": {
-    "VERSION": "${localEnv:VERSION}"
-  },
   "features": {
     "ghcr.io/devcontainers/features/dotnet:2": {
       "version": "7.0",
