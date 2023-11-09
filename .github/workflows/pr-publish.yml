@@ -51,6 +51,51 @@ jobs:
         with:
           projectName: typescript-dc-image
 
+  publish-dotnet-dc-image:
+    name: dotnet-dc-image
+    runs-on: ubuntu-latest
+    needs: [validate, publish-base-dc-image]
+    env:
+      VERSION: ${{ needs.validate.outputs.version }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Build Base Image
+        uses: ./.github/actions/publish-image
+        with:
+          projectName: dotnet-dc-image
+
+  publish-angular-dc-image:
+    name: angular-dc-image
+    runs-on: ubuntu-latest
+    needs: [validate, publish-base-dc-image]
+    env:
+      VERSION: ${{ needs.validate.outputs.version }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Build Base Image
+        uses: ./.github/actions/publish-image
+        with:
+          projectName: angular-dc-image
+
+  publish-angular-dotnet-dc-image:
+    name: angular-dotnet-dc-image
+    runs-on: ubuntu-latest
+    needs: [validate, publish-base-dc-image, publish-angular-dc-image]
+    env:
+      VERSION: ${{ needs.validate.outputs.version }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Build Base Image
+        uses: ./.github/actions/publish-image
+        with:
+          projectName: angular-dotnet-dc-image
+
   # publish_base:
   #   if: github.event.pull_request.merged == true
   #   name: Publish dotnet
