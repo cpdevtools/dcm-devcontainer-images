@@ -8,56 +8,99 @@ on:
       - "release/*"
 
 jobs:
-  publish_base:
-    if: github.event.pull_request.merged == true
-    name: Publish dotnet
-    uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
-    with:
-      projectName: "base"
-
-  publish_dotnet:
-    if: github.event.pull_request.merged == true
-    name: Publish dotnet
-    uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
-    with:
-      projectName: "dotnet"
-
-  publish_typescript:
-    if: github.event.pull_request.merged == true
-    name: Publish typescript
-    uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
-    with:
-      projectName: "typescript"
-
-  publish_angular:
-    if: github.event.pull_request.merged == true
-    name: Publish angular
-    uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
-    with:
-      projectName: "angular"
-
-  create_release:
-    name: Create github release and add version tags
+  validate:
     runs-on: ubuntu-latest
-    needs: [publish_dotnet, publish_typescript, publish_angular]
+    name: Validate release version
     outputs:
-      releaseId: ${{ steps.create_release.outputs.releaseId }}
+      version: ${{ steps.version.outputs.targetVersion }}
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3.3.0
 
-      - name: Create Release
-        id: create_release
-        uses: cpdevtools/common-github-workflows/.github/actions/create-release@main
+      - name: Check Version
+        id: version
+        uses: cpdevtools/common-github-workflows/.github/actions/check-version@main
 
-  #fixes an issue with the external actions/workflows not being able to create/publish a release that is not draft
-  publish_release:
-    if: github.event.pull_request.merged == true
+  publish-base-dc-image:
+    name: base-dc-image
     runs-on: ubuntu-latest
-    needs: [create_release]
+    needs: [validate]
+    env:
+      VERSION: ${{ needs.validate.outputs.version }}
     steps:
-      - uses: eregon/publish-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Build Base Image
+        uses: ./.github/actions/publish-image
         with:
-          release_id: ${{ needs.create_release.outputs.releaseId }}
+          projectName: base-dc-image
+
+  publish-typescript-dc-image:
+    name: typescript-dc-image
+    runs-on: ubuntu-latest
+    needs: [validate, publish-base-dc-image]
+    env:
+      VERSION: ${{ needs.validate.outputs.version }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Build Base Image
+        uses: ./.github/actions/publish-image
+        with:
+          projectName: typescript-dc-image
+
+  # publish_base:
+  #   if: github.event.pull_request.merged == true
+  #   name: Publish dotnet
+  #   uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
+  #   with:
+  #     projectName: "base"
+
+  # publish_dotnet:
+  #   if: github.event.pull_request.merged == true
+  #   name: Publish dotnet
+  #   uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
+  #   with:
+  #     projectName: "dotnet"
+
+  # publish_typescript:
+  #   if: github.event.pull_request.merged == true
+  #   name: Publish typescript
+  #   uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
+  #   with:
+  #     projectName: "typescript"
+
+  # publish_angular:
+  #   if: github.event.pull_request.merged == true
+  #   name: Publish angular
+  #   uses: "cpdevtools/common-github-workflows/.github/workflows/pnpm-publish-docker.yml@main"
+  #   with:
+  #     projectName: "angular"
+
+  # create_release:
+  #   name: Create github release and add version tags
+  #   runs-on: ubuntu-latest
+  #   needs: [publish_dotnet, publish_typescript, publish_angular]
+  #   outputs:
+  #     releaseId: ${{ steps.create_release.outputs.releaseId }}
+  #   steps:
+  #     - name: Checkout Project
+  #       uses: actions/checkout@v3.3.0
+
+  #     - name: Create Release
+  #       id: create_release
+  #       uses: cpdevtools/common-github-workflows/.github/actions/create-release@main
+
+  # #fixes an issue with the external actions/workflows not being able to create/publish a release that is not draft
+  # publish_release:
+  #   if: github.event.pull_request.merged == true
+  #   runs-on: ubuntu-latest
+  #   needs: [create_release]
+  #   steps:
+  #     - uses: eregon/publish-release@v1
+  #       env:
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       with:
+  #         release_id: ${{ needs.create_release.outputs.releaseId }}

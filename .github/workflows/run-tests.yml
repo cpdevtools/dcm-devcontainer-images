@@ -22,7 +22,7 @@ jobs:
       - name: Build Base Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: base-dc-image
+          projectName: base-dc-image
 
       - name: Upload artifact
         uses: ishworkh/container-image-artifact-upload@v1.0.0
@@ -46,7 +46,7 @@ jobs:
       - name: Build Typescript Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: typescript-dc-image
+          projectName: typescript-dc-image
 
   build-dotnet-dc-image:
     name: dotnet-dc-image
@@ -64,7 +64,7 @@ jobs:
       - name: Build .Net Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: dotnet-dc-image
+          projectName: dotnet-dc-image
 
   build-angular-dc-image:
     name: angular-dc-image
@@ -82,7 +82,7 @@ jobs:
       - name: Build Angular Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: angular-dc-image
+          projectName: angular-dc-image
 
       - name: Upload artifact
         uses: ishworkh/container-image-artifact-upload@v1.0.0
@@ -105,7 +105,7 @@ jobs:
       - name: Build Angular Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: angular-dotnet-dc-image
+          projectName: angular-dotnet-dc-image
 
   # build-dotnet:
   #   name: dotnet

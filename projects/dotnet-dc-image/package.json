@@ -5,6 +5,6 @@
   },
   "scripts": {
     "actions-build": "devcontainer build  --workspace-folder ./ --image-name ghcr.io/cpdevtools/dotnet-dc-image:${VERSION:-latest}",
-    "actions-publish": "devcontainer build  --workspace-folder ./ --image-name ghcr.io/cpdevtools/dotnet-dc-image:${VERSION:-latest}"
+    "actions-publish": "devcontainer build  --workspace-folder ./ --image-name dotnet-dc-image:latest"
   }
 }

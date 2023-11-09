@@ -1,5 +1,5 @@
-name: Build Image
-description: "Build a docker image and stores it as an artifact"
+name: Publish Image
+description: "Publish a docker image"
 inputs:
   projectName:
     description: Project name
@@ -14,14 +14,18 @@ runs:
         nodeVersion: 18.18.1
         pnpmVersion: 8.10.2
 
+    - name: ENV
+      shell: bash
+      run: |
+        env
+
     - name: Build
       uses: cpdevtools/common-github-workflows/.github/actions/pnpm-run-recursive@main
       with:
-        script: actions-build
+        script: actions-publish
         projectFilter: ${{ inputs.projectName }}
 
-    - name: Run Tests
-      uses: cpdevtools/common-github-workflows/.github/actions/pnpm-run-recursive@main
+    - name: Publish
+      uses: cpdevtools/common-github-workflows/.github/actions/publish-docker-image-pnpm@main
       with:
-        script: actions-test
-        projectFilter: ${{ inputs.projectName }}
+        image: ${{ inputs.projectName }}
