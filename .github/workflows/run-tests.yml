@@ -22,12 +22,12 @@ jobs:
       - name: Build Base Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: "base-dc-image"
+          projectFilter: base-dc-image
 
       - name: Upload artifact
         uses: ishworkh/container-image-artifact-upload@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/base-dc-image:latest"
+          image: ghcr.io/cpdevtools/base-dc-image:latest
 
   build-typescript:
     name: typescript
@@ -40,12 +40,12 @@ jobs:
       - name: Download artifact
         uses: ishworkh/container-image-artifact-download@v1.0.0
         with:
-          image: ghcr.io/cpdevtools/base-dc-image:latest"
+          image: ghcr.io/cpdevtools/base-dc-image:latest
 
       - name: Build Base Image
         uses: ./.github/actions/build-image
         with:
-          projectFilter: "typescript"
+          projectFilter: typescript
 
   # build-dotnet:
   #   name: dotnet
