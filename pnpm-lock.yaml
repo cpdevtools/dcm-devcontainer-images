@@ -35,11 +35,15 @@ importers:
         specifier: ^5.2.2
         version: 5.2.2
 
-  projects/angular: {}
+  projects/angular-dc-image: {}
 
-  projects/dotnet: {}
+  projects/angular-dotnet-dc-image: {}
 
-  projects/typescript: {}
+  projects/base-dc-image: {}
+
+  projects/dotnet-dc-image: {}
+
+  projects/typescript-dc-image: {}
 
 packages:
   /@babel/code-frame@7.22.13:
