@@ -54,6 +54,7 @@
         "esbenp.prettier-vscode",
         "formulahendry.auto-rename-tag",
         "GitHub.copilot",
+        "GitHub.vscode-github-actions",
         "GitHub.vscode-pull-request-github",
         "heaths.vscode-guid",
         "hediet.vscode-drawio",
