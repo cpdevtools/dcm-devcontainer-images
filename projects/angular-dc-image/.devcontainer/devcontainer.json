@@ -14,7 +14,7 @@
       "version": "17.2.1"
     },
     "ghcr.io/akhildevelops/devcontainer-features/android-cli:0": {
-      "PACKAGES": "tools,build-tools,platform-tools,platforms;android-33"
+      "PACKAGES": "build-tools;33.0.3,platform-tools,platforms;android-33"
     }
   },
   "customizations": {
