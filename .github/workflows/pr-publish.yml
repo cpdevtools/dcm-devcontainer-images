@@ -67,6 +67,36 @@ jobs:
         with:
           projectName: dotnet-dc-image
 
+  publish-dotnet-edge-dc-image:
+    name: dotnet-edge-dc-image
+    runs-on: ubuntu-latest
+    needs: [validate, publish-base-dc-image]
+    env:
+      VERSION: ${{ needs.validate.outputs.version }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Build Base Image
+        uses: ./.github/actions/publish-image
+        with:
+          projectName: dotnet-edge-dc-image
+
+  publish-angular-dotnet-edge-dc-image:
+    name: angular-dotnet-edge-dc-image
+    runs-on: ubuntu-latest
+    needs: [validate, publish-dotnet-edge-dc-image]
+    env:
+      VERSION: ${{ needs.validate.outputs.version }}
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v3.3.0
+
+      - name: Build Base Image
+        uses: ./.github/actions/publish-image
+        with:
+          projectName: angular-dotnet-edge-dc-image
+
   publish-angular-dc-image:
     name: angular-dc-image
     runs-on: ubuntu-latest
@@ -108,6 +138,8 @@ jobs:
         publish-dotnet-dc-image,
         publish-angular-dc-image,
         publish-angular-dotnet-dc-image,
+        publish-dotnet-edge-dc-image,
+        publish-angular-dotnet-edge-dc-image,
       ]
     outputs:
       releaseId: ${{ steps.create_release.outputs.releaseId }}

@@ -1,0 +1,10 @@
+{
+  "name": "dotnet-edge-dc-image",
+  "publishConfig": {
+    "type": "docker"
+  },
+  "scripts": {
+    "actions-build": "devcontainer build  --workspace-folder ./ --image-name ghcr.io/cpdevtools/dcm-images-devcontainers/dotnet-edge-dc-image:latest",
+    "actions-publish": "devcontainer build  --workspace-folder ./ --image-name dotnet-edge-dc-image:latest"
+  }
+}
