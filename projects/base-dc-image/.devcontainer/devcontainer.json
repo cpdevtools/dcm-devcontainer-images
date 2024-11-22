@@ -25,8 +25,11 @@
     },
     "ghcr.io/devcontainers/features/github-cli:1": {},
     "ghcr.io/devcontainers/features/java:1": {},
-    "ghcr.io/devcontainers-contrib/features/pnpm:2": {},
-    "ghcr.io/devcontainers-extra/features/tsx:1": {}
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers-extra/features/tsx:1": {},
+    "ghcr.io/devcontainers-extra/features/npm-package:1": {
+      "package": "@cpdevtools/dcman-cli"
+    }
   },
   "customizations": {
     "vscode": {
