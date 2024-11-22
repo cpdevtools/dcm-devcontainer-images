@@ -1,0 +1,5 @@
+ARG VERSION=latest
+
+FROM ghcr.io/cpdevtools/dcm-images-devcontainers/dotnet-edge-dc-image:${VERSION}
+ENV VERSION=${VERSION}
+

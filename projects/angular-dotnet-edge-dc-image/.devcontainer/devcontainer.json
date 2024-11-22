@@ -1,0 +1,25 @@
+{
+  "name": "Dev Container",
+  "remoteUser": "node",
+  "workspaceFolder": "/devcontainer/workspaces",
+  "build": {
+    "dockerfile": "dockerfile",
+    "context": ".",
+    "args": {
+      "VERSION": "${localEnv:VERSION}"
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/angular-cli:2": {
+      "version": "19.0.0"
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "cSpell.words": ["ng", "angular"]
+      },
+      "extensions": ["Angular.ng-template"]
+    }
+  }
+}
