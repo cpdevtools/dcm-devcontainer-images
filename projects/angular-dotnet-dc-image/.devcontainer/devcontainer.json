@@ -20,7 +20,7 @@
       "settings": {
         "cSpell.words": ["linq", "nuget"]
       },
-      "extensions": ["ms-dotnettools.csdevkit"]
+      "extensions": ["ms-dotnettools.csharp@1.26.0"]
     }
   }
 }
